@@ -7,3 +7,16 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
     sendResponse("Color message is none.");
   }
 });
+
+chrome.permissions.request(
+  {
+    permissions: ["tabs"],
+  },
+  function (granted) {
+    if (granted) {
+      console.log("granted");
+    } else {
+      console.log("not granted");
+    }
+  }
+);
